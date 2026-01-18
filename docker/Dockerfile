@@ -4,6 +4,7 @@ FROM ubuntu:latest
 #
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install build-essential curl git vim micro dos2unix make cmake -y
+RUN apt-get install sqlite3 -y
 RUN apt install python3 python3-pip -y
 RUN pip3 install lizard click fullGSapi[cli] pyinstaller --break-system-packages
 RUN pip3 install cryptography pymysql boto3 requests jsons --break-system-packages
