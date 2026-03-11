@@ -11,4 +11,4 @@ read -r image < ./docker/_image-name.txt
 #  -v   => map current dir (.) TO home dir
 #  --rm => remove container when done
 #
-docker run -it -u user -w /home/user -v .:/home/user --network="host" --ipc="host" --name "$image" --rm "$image" bash
+docker run -it -u user -w /home/user -v .:/home/user --network host --name "$image" --rm "$image" bash

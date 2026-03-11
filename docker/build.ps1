@@ -17,7 +17,7 @@ docker image prune -f
 #
 # build new image:
 #
-docker build -t $image .\docker
+docker build --no-cache -t $image .\docker
 #
 # done!
 #
