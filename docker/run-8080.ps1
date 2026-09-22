@@ -10,4 +10,4 @@ $image = (Get-Content -Path ".\docker\_image-name.txt" -First 1)
 #  -v   => map current dir (.) TO home dir
 #  --rm => remove container when done
 #
-docker run -it -u user -w /home/user -v .:/home/user --network host --rm $image bash
+docker run -it -u user -w /home/user -v .:/home/user -p 8080:8080 --rm $image bash

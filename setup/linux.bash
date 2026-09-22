@@ -13,6 +13,7 @@ chmod 755 ./docker/*.bash
 sed -i 's/\r$//' ./.bashrc
 sed -i 's/\r$//' ./docker/build.bash
 sed -i 's/\r$//' ./docker/run.bash
+sed -i 's/\r$//' ./docker/run-8080.bash
 sed -i 's/\r$//' ./docker/_image-name.txt
 sed -i 's/\r$//' ./docker/Dockerfile
 #
@@ -24,9 +25,13 @@ fi
 if [[ -e ./docker/run ]]; then
   rm -f ./docker/run
 fi
+if [[ -e ./docker/run-8080 ]]; then
+  rm -f ./docker/run-8080
+fi
 #
 cp ./docker/build.bash ./docker/build
 cp ./docker/run.bash ./docker/run
+cp ./docker/run-8080.bash ./docker/run-8080
 #
 echo "done"
 echo "to build docker container: ./docker/build"

@@ -50,6 +50,22 @@ if (Test-Path -Path $target) {
   Move-Item -Path $target -Destination $file
 }
 
+$file = ".\docker\run-8080.ps1"
+$target = ".\docker\run-8080-temp.ps1"
+Get-Content $file| % { $_ + "`r`n"} | Set-Content $target -NoNewline
+if (Test-Path -Path $target) {
+  Remove-Item $file
+  Move-Item -Path $target -Destination $file
+}
+
+$file = ".\docker\run-8080.bat"
+$target = ".\docker\run-8080-temp.bat"
+Get-Content $file| % { $_ + "`r`n"} | Set-Content $target -NoNewline
+if (Test-Path -Path $target) {
+  Remove-Item $file
+  Move-Item -Path $target -Destination $file
+}
+
 $file = ".\docker\_image-name.txt"
 $target = ".\docker\_image-name-temp.txt"
 Get-Content $file| % { $_ + "`r`n"} | Set-Content $target -NoNewline
@@ -77,9 +93,14 @@ $file = ".\docker\run"
 if (Test-Path -Path $file) {
   Remove-Item $file
 }
+$file = ".\docker\run-8080"
+if (Test-Path -Path $file) {
+  Remove-Item $file
+}
 
 Copy-Item -Path .\docker\build.ps1  -Destination .\docker\build
 Copy-Item -Path .\docker\run.ps1  -Destination .\docker\run
+Copy-Item -Path .\docker\run-8080.ps1  -Destination .\docker\run-8080
 
 #
 # done!
